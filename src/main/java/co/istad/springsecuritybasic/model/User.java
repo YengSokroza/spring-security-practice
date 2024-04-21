@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -22,6 +23,11 @@ public class User {
 
     private String password;
 
-    @ManyToMany
-    List<Role> roles;
+    private boolean isDisabled;
+    private boolean isAccountLocked;
+    private boolean isAccountExpired;
+    private boolean isCredentialsExpired;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    Set<Role> roles;
 }

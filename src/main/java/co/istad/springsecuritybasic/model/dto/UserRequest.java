@@ -1,4 +1,14 @@
 package co.istad.springsecuritybasic.model.dto;
 
-public record UserRequest() {
+import lombok.Builder;
+
+import java.util.Set;
+
+@Builder
+public record UserRequest(
+        String id,
+        String email,
+        String password,
+        Set<String> roles
+) {
 }
